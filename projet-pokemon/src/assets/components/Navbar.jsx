@@ -60,7 +60,7 @@ export default function Navbar() {
               <input
                 type="text"
                 placeholder="Rechercher un Pokémon..."
-                className="w-full bg-gray-950 text-white px-4 pl-10 py-3 rounded-full focus:outline-none focus:ring-2 focus:ring-red-500 border border-gray-600"
+                className="w-full bg-gray-950 text-white px-4 pl-10 py-3 rounded-full focus:outline-none focus:ring-2 focus:ring-yellow-400 border border-gray-600"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
@@ -131,7 +131,7 @@ export default function Navbar() {
     ].map(pokemon => (
       <div key={pokemon.id} className="bg-gray-800 bg-opacity-70 rounded-xl p-2 h-80 hover:shadow-lg transition-shadow">
         <img src={pokemon.image} alt={pokemon.name} className="w-full h-32 object-contain"/>
-        <div className="mt-3">
+        <div className="mt-12 ml-4">
           <p className="text-gray-400 text-sm">#{pokemon.id.toString().padStart(3, '0')}</p>
           <h3 className="text-lg font-bold text-yellow-400">{pokemon.name}</h3>
           <div className="flex gap-2 mt-2">
