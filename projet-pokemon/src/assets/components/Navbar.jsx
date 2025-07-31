@@ -7,14 +7,10 @@ import Pokemon3 from "../Image-Pokemon/Pokemon 3.png"
 import Pichu from "../Image-Pokemon/Pichu.png"
 import Pikachu from "../Image-Pokemon/Pikachu.png"
 import Raichu from "../Image-Pokemon/Raichu.png"
-import Pokemon4 from "../Image-Pokemon/Pokemon 4.png"
-import Pokemon7 from "../Image-Pokemon/Pokemon 7.png"
-import PiKachu from "../Image-Pokemon/PiKachu.png"
-import Rondoudou from "../Image-Pokemon/Rondoudou.png"
-import Ectoplasma from "../Image-Pokemon/Ectoplasma.png"
-import Evoli from "../Image-Pokemon/Evoli.png"
-import Ronflex from "../Image-Pokemon/Ronflex.png"
-import Mewtow from "../Image-Pokemon/Mewtow.png"
+import Salameche from "../Image-Pokemon/Salameche.png"
+import Reptincel from "../Image-Pokemon/Reptincel.png"
+import Dracafeu from "../Image-Pokemon/Dracafeu.png"
+
 
 export default function Navbar() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -86,6 +82,25 @@ export default function Navbar() {
 <div className={`flex-1 flex flex-col ${isSidebarOpen ? 'ml-1' : 'ml-20'}`}> 
   <div className="p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
     {[
+       {
+        id: 4,
+        name: "Salamèche",
+        image: Salameche,
+        types: ["Feu"],
+      },
+      {
+        id: 5,
+        name: "Reptincel",
+        image: Reptincel,
+        types: ["Feu"],
+      },
+      {
+        id: 6,
+        name: "Dracafeu",
+        image: Dracafeu,
+        types: ["feu", "Vol"],
+      },
+      
       {
         id: 1,
         name: "Bulbizarre",
@@ -108,7 +123,7 @@ export default function Navbar() {
       },
       {
         id: 172,
-        name: "Pikachu",
+        name: "Pichu",
         image: Pichu,
         types: ["Électrik"],
       },
@@ -116,47 +131,17 @@ export default function Navbar() {
       {
         id: 25,
         name: "Pikachu",
-        image: PiKachu,
+        image: Pikachu,
         types: ["Électrik"],
       },
 
       {
         id: 26,
-        name: "Pikachu",
+        name: "Raichu",
         image: Raichu,
         types: ["Électrik"],
       },
-      {
-        id: 39,
-        name: "Rondoudou",
-        image: Rondoudou,
-        types: ["Fée", "Normal"],
-      },
-      {
-        id: 94,
-        name: "Ectoplasma",
-        image: Ectoplasma,
-        types: ["Spectre", "Poison"],
-      },
-      {
-        id: 133,
-        name: "Évoli",
-        image: Evoli,
-        types: ["Normal"],
-      },
-      {
-        id: 143,
-        name: "Ronflex",
-        image: Ronflex,
-        types: ["Normal"],
-      },
-      {
-        id: 150,
-        name: "Mewtwo",
-        image: Mewtow,
-        types: ["Psy"],
-      },
-  
+      
     ].map(pokemon => (
       <div key={pokemon.id} className="bg-gray-800 bg-opacity-70 rounded-xl p-2 h-80 hover:shadow-lg transition-shadow">
         <img src={pokemon.image} alt={pokemon.name} className="w-full h-32 object-contain"/>
@@ -182,8 +167,8 @@ export default function Navbar() {
                       ? "bg-pink-400"
                       : type === "Spectre"
                       ? "bg-indigo-600"
-                      : type === "Psy"
-                      ? "bg-pink-600"
+                      : type === "Vol"
+                      ? "bg-blue-800"
                       : "bg-gray-500"
                   }`}
               >
