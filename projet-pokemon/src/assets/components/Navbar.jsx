@@ -5,6 +5,11 @@ import Pokemon1 from "../Image-Pokemon/Pokemon 1.png"
 import Pokemon4 from "../Image-Pokemon/Pokemon 4.png"
 import Pokemon7 from "../Image-Pokemon/Pokemon 7.png"
 import PiKachu from "../Image-Pokemon/PiKachu.png"
+import Rondoudou from "../Image-Pokemon/Rondoudou.png"
+import Ectoplasma from "../Image-Pokemon/Ectoplasma.png"
+import Evoli from "../Image-Pokemon/Evoli.png"
+import Ronflex from "../Image-Pokemon/Ronflex.png"
+import Mewtow from "../Image-Pokemon/Mewtow.png"
 
 export default function Navbar() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -103,31 +108,31 @@ export default function Navbar() {
       {
         id: 39,
         name: "Rondoudou",
-        image: "/039.png",
+        image: Rondoudou,
         types: ["Fée", "Normal"],
       },
       {
         id: 94,
         name: "Ectoplasma",
-        image: "/094.png",
+        image: Ectoplasma,
         types: ["Spectre", "Poison"],
       },
       {
         id: 133,
         name: "Évoli",
-        image: "/133.png",
+        image: Evoli,
         types: ["Normal"],
       },
       {
         id: 143,
         name: "Ronflex",
-        image: "/143.png",
+        image: Ronflex,
         types: ["Normal"],
       },
       {
         id: 150,
         name: "Mewtwo",
-        image: "/150.png",
+        image: Mewtow,
         types: ["Psy"],
       },
   
