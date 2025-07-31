@@ -133,21 +133,15 @@ export default function Navbar() {
         types: ["Fée", "Normal"],
       },
       {
-        id: 94,
-        name: "Ectoplasma",
-        image: Ectoplasma,
-        types: ["Spectre", "Poison"],
+        id: 143,
+        name: "Ronflex",
+        image: Ronflex,
+        types: ["Normal"],
       },
       {
         id: 133,
         name: "Évoli",
         image: Evoli,
-        types: ["Normal"],
-      },
-      {
-        id: 143,
-        name: "Ronflex",
-        image: Ronflex,
         types: ["Normal"],
       },
       {
