@@ -108,7 +108,7 @@ export default function Navbar() {
       },
       {
         id: 172,
-        name: "Pikachu",
+        name: "Pichu",
         image: Pichu,
         types: ["Électrik"],
       },
@@ -122,7 +122,7 @@ export default function Navbar() {
 
       {
         id: 26,
-        name: "Pikachu",
+        name: "Raichu",
         image: Raichu,
         types: ["Électrik"],
       },
