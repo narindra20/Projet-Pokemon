@@ -2,6 +2,11 @@ import React, { useState } from "react";
 import { FiSearch, FiHome, FiStar, FiList, FiSettings } from "react-icons/fi";
 import Pokemon from "../Image-Pokemon/Pokemon.png"
 import Pokemon1 from "../Image-Pokemon/Pokemon 1.png"
+import Pokemon2 from "../Image-Pokemon/Pokemon 2.png"
+import Pokemon3 from "../Image-Pokemon/Pokemon 3.png"
+import Pichu from "../Image-Pokemon/Pichu.png"
+import Pikachu from "../Image-Pokemon/Pikachu.png"
+import Raichu from "../Image-Pokemon/Raichu.png"
 import Pokemon4 from "../Image-Pokemon/Pokemon 4.png"
 import Pokemon7 from "../Image-Pokemon/Pokemon 7.png"
 import PiKachu from "../Image-Pokemon/PiKachu.png"
@@ -87,22 +92,38 @@ export default function Navbar() {
         image: Pokemon1,
         types: ["Herbe", "Poison"],
       },
+
       {
-        id: 4,
-        name: "Salamèche",
-        image: Pokemon4,
-        types: ["Feu"],
+        id: 2,
+        name: "Ivysaure",
+        image: Pokemon2,
+        types: ["Herbe", "Poison"],
+      },
+
+      {
+        id: 3,
+        name: "Florizarre",
+        image: Pokemon3,
+        types: ["Herbe", "Poison"],
       },
       {
-        id: 7,
-        name: "Carapuce",
-        image: Pokemon7,
-        types: ["Eau"],
+        id: 172,
+        name: "Pikachu",
+        image: Pichu,
+        types: ["Électrik"],
       },
+
       {
         id: 25,
         name: "Pikachu",
         image: PiKachu,
+        types: ["Électrik"],
+      },
+
+      {
+        id: 26,
+        name: "Pikachu",
+        image: Raichu,
         types: ["Électrik"],
       },
       {
