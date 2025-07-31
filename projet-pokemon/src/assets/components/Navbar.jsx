@@ -4,6 +4,7 @@ import Pokemon from "../Image-Pokemon/Pokemon.png"
 import Pokemon1 from "../Image-Pokemon/Pokemon 1.png"
 import Pokemon4 from "../Image-Pokemon/Pokemon 4.png"
 import Pokemon7 from "../Image-Pokemon/Pokemon 7.png"
+import PiKachu from "../Image-Pokemon/PiKachu.png"
 
 export default function Navbar() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -96,7 +97,7 @@ export default function Navbar() {
       {
         id: 25,
         name: "Pikachu",
-        image: "/025.png",
+        image: PiKachu,
         types: ["Électrik"],
       },
       {
