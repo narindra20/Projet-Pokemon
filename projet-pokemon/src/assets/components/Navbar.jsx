@@ -98,7 +98,7 @@ export default function Navbar() {
         id: 6,
         name: "Dracafeu",
         image: Dracafeu,
-        types: ["feu", "Vol"],
+        types: ["Feu", "Vol"],
       },
       
       {
@@ -140,7 +140,7 @@ export default function Navbar() {
         name: "Raichu",
         image: Raichu,
         types: ["Électrik"],
-      },
+      }, 
       
     ].map(pokemon => (
       <div key={pokemon.id} className="bg-gray-800 bg-opacity-70 rounded-xl p-2 h-80 hover:shadow-lg transition-shadow">
