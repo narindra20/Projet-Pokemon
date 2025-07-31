@@ -1,25 +1,28 @@
 import React, { useState } from "react";
 import { FiSearch, FiHome, FiStar, FiList, FiSettings } from "react-icons/fi";
-import Pokemon from "../Image Pokemon/Pokemon 1.png"
-import Pokemon1 from "../Image Pokemon/Pokemon 1.png"
+import Pokemon from "../Image-Pokemon/Pokemon.png"
+import Pokemon1 from "../Image-Pokemon/Pokemon 1.png"
+import Pokemon4 from "../Image-Pokemon/Pokemon 4.png"
+import Pokemon7 from "../Image-Pokemon/Pokemon 7.png"
 
 export default function Navbar() {
   const [searchQuery, setSearchQuery] = useState("");
   const [isSidebarOpen] = useState(true);
+  
   return (
     <div className="flex bg-gray-900 overflow-hidden">
       <div className={`${isSidebarOpen ? 'w-64' : 'w-20'} text-white transition-all duration-300 flex flex-col z-40`}>   
       <div 
-  className={`${isSidebarOpen ? 'w-64' : 'w-20'} text-white transition-all duration-300 flex flex-col z-40 relative`}
+  className={`${isSidebarOpen ? 'w-64' : 'w-20'} text-white transition-all duration-300 flex flex-col absolute inset-0 z-0`}
   style={{
     backgroundImage: `url(${Pokemon})`,
     backgroundSize: "cover",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
+    height: '174vh',
   }}
 >
 
-  <div className="absolute inset-0 bg-black bg-opacity-70"></div>
   <div className="relative z-10">
     <div className="p-4 flex items-center justify-between border-b border-yellow-300">
       {isSidebarOpen ? (
@@ -39,17 +42,16 @@ export default function Navbar() {
         />
       )}
     </div>
-  </div>
-</div>
-
-        {/* Menu navigation */}
-        <nav className="flex-1 mt-4">
+    {/* Menu navigation */}
+    <nav className="flex-1 relative z-10">
           <NavItem icon={<FiHome size={20} />} text="Accueil" isOpen={isSidebarOpen} active />
           <NavItem icon={<FiList size={20} />} text="Pokédex" isOpen={isSidebarOpen} />
           <NavItem icon={<FiStar size={20} />} text="Favoris" isOpen={isSidebarOpen} />
           <NavItem icon={<FiSettings size={20} />} text="Paramètres" isOpen={isSidebarOpen} />
         </nav>
-      </div>
+   </div>
+ </div>
+</div>
 
     
       <div className={`flex-1 flex flex-col ${isSidebarOpen ? 'ml-1' : 'ml-20'}`}> 
@@ -76,19 +78,19 @@ export default function Navbar() {
       {
         id: 1,
         name: "Bulbizarre",
-        image: "/projet-pokemon/src/assets/Image Pokemon/Pokemon 1.png",
+        image: Pokemon1,
         types: ["Herbe", "Poison"],
       },
       {
         id: 4,
         name: "Salamèche",
-        image: "/004.png",
+        image: Pokemon4,
         types: ["Feu"],
       },
       {
         id: 7,
         name: "Carapuce",
-        image: "/007.png",
+        image: Pokemon7,
         types: ["Eau"],
       },
       {
@@ -175,7 +177,7 @@ export default function Navbar() {
 // Composant d'item de navigation 
 function NavItem({ icon, text, isOpen, active = false }) {
   return (
-    <div className={`flex items-center p-3 mx-2 my-1 rounded-md ${active ? 'bg-gray-800' : 'hover:bg-yellow-300'} cursor-pointer`}>
+    <div className={`flex items-center p-3 mx-2 my-1 rounded-md ${active ? 'bg-gray-800' : 'hover:bg-gray-800'} cursor-pointer`}>
       <span className="flex-shrink-0">{icon}</span>
       {isOpen && <span className="ml-3">{text}</span>}
     </div>
