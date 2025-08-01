@@ -41,7 +41,7 @@ export default function Navbar() {
   return (
     <div className="flex bg-white overflow-hidden">
       {/* Sidebar */}
-      <div className={`${isSidebarOpen ? 'w-64' : 'w-20'} relative text-white transition-all duration-300 flex flex-col z-40`}>
+      <div className={`${isSidebarOpen ? 'w-64' : 'w-20'} text-white transition-all duration-300 flex flex-col z-40`}>
         {/* Fond d'image en absolute */}
         <div
           className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
@@ -54,7 +54,7 @@ export default function Navbar() {
             position:'fixed',
           }} 
         />
-        {/* Contenu de la sidebar */}
+        {/* Contenu de la barre à gauche*/}
         <div className="fixed z-10 flex flex-col h-full w-63">
           <div className="p-4 flex items-center justify-between border-b border-yellow-300">
             {isSidebarOpen ? (
@@ -74,7 +74,7 @@ export default function Navbar() {
               />
             )}
           </div>
-          <nav className="flex-1 relative z-10 fixed">
+          <nav className="flex-1 relative z-10">
             <NavItem icon={<FiHome size={20} />} text="Accueil" isOpen={isSidebarOpen} />
             <NavItem icon={<FiList size={20} />} text="Pokédex" isOpen={isSidebarOpen} active />
             <NavItem icon={<FiStar size={20} />} text="Favoris" isOpen={isSidebarOpen} />
@@ -83,11 +83,11 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Main content */}
+      
       <div className={`flex-1 flex flex-col ${isSidebarOpen ? 'ml-1' : 'ml-20'}`}>
         {/* Barre de recherche */}
-        <div className="bg-blue-50 bg-opacity-70 py-4 w-full px-6 sticky top-0 z-40 backdrop-blur-sm">
-          <div className="max-w-4xl mx-auto">
+        <div className="bg-blue-50 bg-opacity-70 py-4 w-full px-6 top-0 z-40 backdrop-blur-sm fixed">
+          <div className="max-w-4xl mx-auto mr-66">
             <div className="relative">
               <input
                 type="text"
@@ -102,7 +102,7 @@ export default function Navbar() {
         </div>
 
         {/* Pokémons */}
-        <div className="p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
+        <div className="p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 mt-20">
           {filteredPokemons.map((pokemon) => (
             <div
               key={pokemon.id}
