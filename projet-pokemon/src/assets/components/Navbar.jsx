@@ -55,7 +55,7 @@ export default function Navbar() {
           }} 
         />
         {/* Contenu de la sidebar */}
-        <div className="relative z-10 flex flex-col h-full">
+        <div className="fixed z-10 flex flex-col h-full w-63">
           <div className="p-4 flex items-center justify-between border-b border-yellow-300">
             {isSidebarOpen ? (
               <div className="flex items-center gap-2">
