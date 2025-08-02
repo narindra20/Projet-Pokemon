@@ -50,11 +50,11 @@ export default function Home() {
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
-            width: '44vh',
+            width: '47vh',
             position:'fixed',
           }}
         />
-        <div className="fixed z-10 flex flex-col h-full w-70">
+        <div className="fixed z-10 flex flex-col h-full w-65">
           <div className="p-4 flex items-center justify-between border-b border-yellow-300">
             {isSidebarOpen ? (
               <div className="flex items-center gap-2">
@@ -83,7 +83,7 @@ export default function Home() {
       </div>
 
       <div className={`flex-1 flex flex-col ${isSidebarOpen ? 'ml-1' : 'ml-20'}`}>
-        <div className="bg-blue-50 bg-opacity-70 py-4 w-300 px-10 top-0 z-40 backdrop-blur-sm fixed ml-6">
+        <div className="bg-blue-50 bg-opacity-70 py-4 w-244 px-10 top-0 z-40 backdrop-blur-sm fixed ml-5">
           <div className="max-w-4xl mx-auto ml-6">
             <div className="relative">
               <input
