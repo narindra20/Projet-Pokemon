@@ -35,7 +35,7 @@ export default function PokemonDetails() {
         className={`${isSidebarOpen ? "w-64" : "w-20"} text-white transition-all duration-300 flex flex-col fixed h-full z-40 w-69`}
       >
         <div
-          className="absolute inset-0 bg-black opacity-70 z-10"
+          className="absolute inset-0 bg-blue opacity-70 z-10"
           style={{
             backgroundImage: `url(${Pokemon})`,
             backgroundSize: "cover",
@@ -65,7 +65,7 @@ export default function PokemonDetails() {
             )}
           </div>
 
-          <nav className="flex-1 relative z-10 mt-6">
+          <nav className="flex-1 relative z-10 mt-6 text-gray-900 font-bold">
             <NavItem icon={<FiHome size={20} />} text="Accueil" isOpen={isSidebarOpen}/>
             <Link to="/" className="flex-1 relative z-10 mt-6">
             <NavItem icon={<FiList size={20} />} text="Pokédex" isOpen={isSidebarOpen}/>
@@ -76,7 +76,7 @@ export default function PokemonDetails() {
         </div>
       </div>
 
-      {/* Main Content */}
+      {/* Contenus de chaque Pokemon */}
       <main className="flex-1 flex flex-col p-6 overflow-auto max-w-4xl mx-auto ml-69">
         <h1 className="text-3xl font-bold capitalize text-center mb-4">
           {pokemon.name}
@@ -85,7 +85,7 @@ export default function PokemonDetails() {
         <img
           src={pokemon.sprites.other["official-artwork"].front_default}
           alt={pokemon.name}
-          className="w-64 h-64 mx-auto"
+          className="w-60 h-60 mx-auto"
         />
 
         <p className="text-center mt-2 mb-4">
@@ -181,7 +181,7 @@ function NavItem({ icon, text, isOpen, active = false }) {
   return (
     <div
       className={`flex items-center p-3 mx-2 my-1 rounded-md ${
-        active ? "bg-gray-800" : "hover:bg-gray-800"
+        active ? "bg-yellow-300" : "hover:bg-yellow-300"
       } cursor-pointer`}
     >
       <span className="flex-shrink-0">{icon}</span>

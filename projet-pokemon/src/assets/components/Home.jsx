@@ -44,7 +44,7 @@ export default function Home() {
       {/*Barre à gauche*/}
       <div className={`${isSidebarOpen ? 'w-64' : 'w-20'} text-white transition-all duration-300 flex flex-col z-40`}>
         <div
-          className="absolute inset-0 bg-black opacity-70 z-10"
+          className="absolute inset-0 opacity-70 z-10"
           style={{
             backgroundImage: `url(${Pokemon})`,
             backgroundSize: "cover",
@@ -55,7 +55,7 @@ export default function Home() {
           }}
         />
         <div className="fixed z-10 flex flex-col h-full w-65">
-          <div className="p-4 flex items-center justify-between border-b border-yellow-300">
+          <div className="p-4 flex items-center justify-between border-b border-yellow-300 w-69">
             {isSidebarOpen ? (
               <div className="flex items-center gap-2">
                 <img
@@ -73,7 +73,7 @@ export default function Home() {
               />
             )}
           </div>
-          <nav className="flex-1 relative z-10">
+          <nav className="flex-1 relative z-60 text-gray-900 font-bold">
             <NavItem icon={<FiHome size={20} />} text="Accueil" isOpen={isSidebarOpen} />
             <NavItem icon={<FiList size={20} />} text="Pokédex" isOpen={isSidebarOpen} active />
             <NavItem icon={<FiStar size={20} />} text="Favoris" isOpen={isSidebarOpen} />
@@ -157,7 +157,7 @@ function NavItem({ icon, text, isOpen, active = false }) {
   return (
     <div
       className={`flex items-center p-3 mx-2 my-1 rounded-md ${
-        active ? "bg-gray-800" : "hover:bg-gray-800"
+        active ? "bg-yellow-300" : "hover:bg-yellow-300"
       } cursor-pointer`}
     >
       <span className="flex-shrink-0">{icon}</span>
