@@ -1,17 +1,38 @@
-import { useState } from 'react'
+// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+// import PokemonDetails from "../src/assets/components/PokemonDetails";
+// import Footer from "./assets/components/Footer";
+// import Home from "./assets/components/Home";
+
+// export default function App() {
+//   return (
+//     <Router>
+//       <Routes>
+//         <Route path="/" element={<Home/>} />
+//         <Route path="/" element={<Footer/>} />
+
+//         <Route path="/pokemon/:id" element={<PokemonDetails />} />
+//       </Routes>
+//     </Router>
+//   );
+// }
+
+
 import React from "react";
-import Navbar from "./assets/components/Navbar";
-import Footer from "./assets/components/Footer";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";       
+import PokemonDetails from "../src/assets/components/PokemonDetails";
+import Footer from "./assets/components/Footer";               
+import Home from "./assets/components/Home";                   
 
-
-function App() {
-
+export default function App() {
   return (
-    <>
-      <Navbar/>
-      <Footer/>
-    </>
-  )
-}
+    <Router>
+      
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/pokemon/:id" element={<PokemonDetails />} />
+      </Routes>
 
-export default App
+      <Footer/>
+    </Router>
+  );
+}

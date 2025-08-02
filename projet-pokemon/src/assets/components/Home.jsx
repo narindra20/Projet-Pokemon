@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { FiSearch, FiHome, FiStar, FiList, FiSettings } from "react-icons/fi";
+import { Link } from "react-router-dom";
 import Pokemon from "../Image-Pokemon/Pokemon.png";
 
-export default function Navbar() {
+export default function Home() {
   const [searchQuery, setSearchQuery] = useState("");
   const [isSidebarOpen] = useState(true);
   const [pokemons, setPokemons] = useState([]);
@@ -40,11 +41,10 @@ export default function Navbar() {
 
   return (
     <div className="flex bg-white overflow-hidden">
-      {/* Sidebar */}
+      {/*Barre à gauche*/}
       <div className={`${isSidebarOpen ? 'w-64' : 'w-20'} text-white transition-all duration-300 flex flex-col z-40`}>
-        {/* Fond d'image en absolute */}
         <div
-          className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+          className="absolute inset-0 bg-black opacity-70 z-10"
           style={{
             backgroundImage: `url(${Pokemon})`,
             backgroundSize: "cover",
@@ -52,10 +52,9 @@ export default function Navbar() {
             backgroundRepeat: "no-repeat",
             width: '44vh',
             position:'fixed',
-          }} 
+          }}
         />
-        {/* Contenu de la barre à gauche*/}
-        <div className="fixed z-10 flex flex-col h-full w-63">
+        <div className="fixed z-10 flex flex-col h-full w-70">
           <div className="p-4 flex items-center justify-between border-b border-yellow-300">
             {isSidebarOpen ? (
               <div className="flex items-center gap-2">
@@ -83,11 +82,9 @@ export default function Navbar() {
         </div>
       </div>
 
-      
       <div className={`flex-1 flex flex-col ${isSidebarOpen ? 'ml-1' : 'ml-20'}`}>
-        {/* Barre de recherche */}
-        <div className="bg-blue-50 bg-opacity-70 py-4 w-full px-6 top-0 z-40 backdrop-blur-sm fixed">
-          <div className="max-w-4xl mx-auto mr-66">
+        <div className="bg-blue-50 bg-opacity-70 py-4 w-300 px-10 top-0 z-40 backdrop-blur-sm fixed ml-6">
+          <div className="max-w-4xl mx-auto ml-6">
             <div className="relative">
               <input
                 type="text"
@@ -101,26 +98,25 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Pokémons */}
-        <div className="p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 mt-20">
+        {/* Cartes Pokémons */}
+        <div className="p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 mt-20 ml-12">
           {filteredPokemons.map((pokemon) => (
-            <div
+            <Link
+              to={`/pokemon/${pokemon.id}`}
               key={pokemon.id}
-              className="bg-blue-50 bg-opacity-70 rounded-xl p-2 h-80 hover:shadow-lg transition-shadow"
+              className="bg-blue-50 bg-opacity-70 rounded-xl p-4 hover:shadow-lg transition-shadow flex flex-col items-center"
             >
               <img
                 src={pokemon.image}
                 alt={pokemon.name}
-                className="w-full h-45 object-contain"
+                className="w-full h-48 object-contain"
               />
-              <div className="mb-5 ml-4">
+              <div className="mt-4 w-full text-center">
                 <p className="text-gray-400 text-sm">
                   #{pokemon.id.toString().padStart(3, "0")}
                 </p>
-                <h3 className="text-lg font-bold text-yellow-400 capitalize">
-                  {pokemon.name}
-                </h3>
-                <div className="flex gap-2 mt-2">
+                <h3 className="text-lg font-bold text-yellow-400 capitalize">{pokemon.name}</h3>
+                <div className="flex justify-center gap-2 mt-2 flex-wrap">
                   {pokemon.types.map((type) => (
                     <span
                       key={type}
@@ -149,7 +145,7 @@ export default function Navbar() {
                   ))}
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
@@ -157,7 +153,6 @@ export default function Navbar() {
   );
 }
 
-// Composant d'item de navigation
 function NavItem({ icon, text, isOpen, active = false }) {
   return (
     <div
