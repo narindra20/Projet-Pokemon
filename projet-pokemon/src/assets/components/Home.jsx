@@ -83,7 +83,7 @@ export default function Home() {
       </div>
 
       <div className={`flex-1 flex flex-col ${isSidebarOpen ? 'ml-1' : 'ml-20'}`}>
-        <div className="bg-blue-50 bg-opacity-70 py-4 w-244 px-10 top-0 z-40 backdrop-blur-sm fixed ml-5">
+        <div className="bg-blue-50 bg-opacity-70 py-4 w-257 px-10 top-0 z-40 backdrop-blur-sm fixed ml-12">
           <div className="max-w-4xl mx-auto ml-6">
             <div className="relative">
               <input

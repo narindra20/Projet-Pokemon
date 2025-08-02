@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import { FiHome, FiStar, FiList, FiSettings } from "react-icons/fi";
-import Pokemon from "../Image-Pokemon/Pokemon.png"; // adapte le chemin
+import Pokemon from "../Image-Pokemon/Pokemon.png";
+import { motion } from "framer-motion";
 
 export default function PokemonDetails() {
   const { id } = useParams();
@@ -32,7 +33,7 @@ export default function PokemonDetails() {
     <div className="flex bg-white overflow-hidden min-h-screen">
       {/* Sidebar */}
       <div
-        className={`${isSidebarOpen ? "w-64" : "w-20"} text-white transition-all duration-300 flex flex-col fixed h-full z-40 w-69`}
+        className={`${isSidebarOpen ? "w-64" : "w-20"} text-white transition-all duration-300 flex flex-col fixed h-full z-40 w-75`}
       >
         <div
           className="absolute inset-0 bg-blue opacity-70 z-10"
@@ -66,113 +67,118 @@ export default function PokemonDetails() {
           </div>
 
           <nav className="flex-1 relative z-10 mt-6 text-gray-900 font-bold">
-            <NavItem icon={<FiHome size={20} />} text="Accueil" isOpen={isSidebarOpen}/>
+            <NavItem icon={<FiHome size={20} />} text="Accueil" isOpen={isSidebarOpen} />
             <Link to="/" className="flex-1 relative z-10 mt-6">
-            <NavItem icon={<FiList size={20} />} text="Pokédex" isOpen={isSidebarOpen}/>
+              <NavItem icon={<FiList size={20} />} text="Pokédex" isOpen={isSidebarOpen} />
             </Link>
-            <NavItem icon={<FiStar size={20} />} text="Favoris" isOpen={isSidebarOpen}/>
+            <NavItem icon={<FiStar size={20} />} text="Favoris" isOpen={isSidebarOpen} />
             <NavItem icon={<FiSettings size={20} />} text="Paramètres" isOpen={isSidebarOpen} />
           </nav>
         </div>
       </div>
 
       {/* Contenus de chaque Pokemon */}
-      <main className="flex-1 flex flex-col p-6 overflow-auto max-w-4xl mx-auto ml-69">
-        <h1 className="text-3xl font-bold capitalize text-center mb-4">
-          {pokemon.name}
-        </h1>
+      <main className="flex-1 flex justify-center items-center ml-64 px-4">
+  <div className="bg-white rounded-3xl shadow-2xl px-10 py-8 w-full max-w-xl border border-gray-200 relative z-0">
 
-        <img
-          src={pokemon.sprites.other["official-artwork"].front_default}
-          alt={pokemon.name}
-          className="w-60 h-60 mx-auto"
-        />
+    <motion.h1
+      className="text-4xl font-extrabold capitalize text-center mb-6 text-gray-900"
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      {pokemon.name}
+    </motion.h1>
 
-        <p className="text-center mt-2 mb-4">
-          ID : #{pokemon.id.toString().padStart(3, "0")}
-        </p>
+    <motion.img
+      src={pokemon.sprites.other["official-artwork"].front_default}
+      alt={pokemon.name}
+      className="w-56 h-56 mx-auto rounded-xl shadow-md mb-6"
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.5 }}
+    />
 
-        {/* Types */}
-        <div className="mt-4">
-          <h2 className="text-xl font-semibold">Types</h2>
-          <ul className="flex gap-2 mt-2">
-            {pokemon.types.map((typeInfo) => (
-              <li
-                key={typeInfo.type.name}
-                className="px-3 py-1 rounded text-white capitalize"
-                style={{ backgroundColor: getTypeColor(typeInfo.type.name) }}
-              >
-                {typeInfo.type.name}
-              </li>
-            ))}
-          </ul>
+    <p className="text-center text-gray-600 font-semibold mb-6 text-lg">
+      ID : #{pokemon.id.toString().padStart(3, "0")}
+    </p>
+
+    {/* Types */}
+    <div className="flex justify-center gap-3 flex-wrap mb-6">
+      {pokemon.types.map((typeInfo) => (
+        <span
+          key={typeInfo.type.name}
+          className="px-4 py-1 rounded-full text-white capitalize text-sm font-semibold shadow-md"
+          style={{ backgroundColor: getTypeColor(typeInfo.type.name) }}
+        >
+          {typeInfo.type.name}
+        </span>
+      ))}
+    </div>
+
+    {/* Statistiques */}
+<div className="mb-6">
+  <h3 className="text-md font-bold text-gray-800 mb-4">Statistiques</h3>
+  <ul className="space-y-4">
+    {pokemon.stats.map((stat) => (
+      <li key={stat.stat.name}>
+        <div className="flex justify-between mb-1 text-sm text-gray-600">
+          <span className="capitalize">{stat.stat.name}</span>
+          <span className="font-semibold">{stat.base_stat}</span>
         </div>
-
-        {/* Stats */}
-        <div className="mt-6">
-          <h2 className="text-xl font-semibold">Statistiques</h2>
-          <ul className="mt-2">
-            {pokemon.stats.map((stat) => (
-              <li
-                key={stat.stat.name}
-                className="flex justify-between border-b py-1 capitalize"
-              >
-                <span>{stat.stat.name}</span>
-                <span>{stat.base_stat}</span>
-              </li>
-            ))}
-          </ul>
+        <div className="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+          <motion.div
+            className="h-full rounded-full"
+            style={{
+              backgroundColor: "#38bdf8", 
+            }}
+            initial={{ width: 0 }}
+            animate={{ width: `${Math.min(stat.base_stat, 100)}%` }} 
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          />
         </div>
+      </li>
+    ))}
+  </ul>
+</div>
 
-        {/* Capacités */}
-        <div className="mt-6">
-          <h2 className="text-xl font-semibold">Capacités</h2>
-          <ul className="list-disc list-inside mt-2">
-            {pokemon.abilities.map((abilityInfo) => (
-              <li key={abilityInfo.ability.name} className="capitalize">
-                {abilityInfo.ability.name}
-              </li>
-            ))}
-          </ul>
-        </div>
+    {/* Capacités */}
+    <div className="mb-6">
+      <h3 className="text-md font-bold text-gray-800 mb-2">Capacités</h3>
+      <ul className="list-disc list-inside text-gray-700 text-sm">
+        {pokemon.abilities.map((abilityInfo) => (
+          <li key={abilityInfo.ability.name} className="capitalize">
+            {abilityInfo.ability.name}
+          </li>
+        ))}
+      </ul>
+    </div>
 
-        {/* Taille & Poids */}
-        <div className="mt-6">
-          <p>
-            <strong>Taille :</strong> {pokemon.height / 10} m
-          </p>
-          <p>
-            <strong>Poids :</strong> {pokemon.weight / 10} kg
-          </p>
-        </div>
+    {/* Taille & Poids */}
+    <div className="text-sm text-gray-700 mb-6">
+      <p><strong>Taille :</strong> {pokemon.height / 10} m</p>
+      <p><strong>Poids :</strong> {pokemon.weight / 10} kg</p>
+    </div>
 
-        {/* Sprites */}
-        <div className="mt-6">
-          <h2 className="text-xl font-semibold">Sprites</h2>
-          <div className="flex flex-wrap gap-4 mt-2">
-            <img
-              src={pokemon.sprites.front_default}
-              alt="Front"
-              className="w-20 h-20"
+    {/* Sprites */}
+    <div className="flex justify-center gap-4 flex-wrap">
+      {[pokemon.sprites.front_default, pokemon.sprites.back_default, pokemon.sprites.front_shiny, pokemon.sprites.back_shiny].map(
+        (sprite, index) =>
+          sprite && (
+            <motion.img
+              key={index}
+              src={sprite}
+              alt={`sprite-${index}`}
+              className="w-14 h-14 rounded-md shadow"
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
             />
-            <img
-              src={pokemon.sprites.back_default}
-              alt="Back"
-              className="w-20 h-20"
-            />
-            <img
-              src={pokemon.sprites.front_shiny}
-              alt="Shiny Front"
-              className="w-20 h-20"
-            />
-            <img
-              src={pokemon.sprites.back_shiny}
-              alt="Shiny Back"
-              className="w-20 h-20"
-            />
-          </div>
-        </div>
-      </main>
+          )
+      )}
+    </div>
+  </div>
+</main>
     </div>
   );
 }

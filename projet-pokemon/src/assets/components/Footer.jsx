@@ -3,7 +3,7 @@ import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube, FaWhatsapp } from "reac
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-800 text-white mt-2 w-240 ml-70">
+    <footer className="bg-gray-800 text-white mt-2 w-258 ml-76">
       <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-8">
 
         <div>
